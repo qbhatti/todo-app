@@ -27,7 +27,7 @@ export default function Todo({
     toggleTodo(id);
   };
   return (
-    <ListItem>
+    <ListItem style={{ height: 58 }}>
       {isEditing ? (
         <EditTodoForm
           id={id}

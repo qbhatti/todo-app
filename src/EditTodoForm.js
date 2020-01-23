@@ -1,5 +1,8 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
+import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 import useInputState from "./hooks/useInputState";
 
 export default function EditTodoForm({ editTodo, id, toggleEditForm, task }) {
@@ -13,7 +16,7 @@ export default function EditTodoForm({ editTodo, id, toggleEditForm, task }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+    <form onSubmit={handleSubmit} style={{ width: "80%", marginLeft: "1rem" }}>
       <TextField
         autoFocus
         required
@@ -22,6 +25,15 @@ export default function EditTodoForm({ editTodo, id, toggleEditForm, task }) {
         margin="normal"
         fullWidth
       />
+      <ListItemSecondaryAction>
+        <IconButton
+          aria-label="Cancel"
+          onClick={toggleEditForm}
+          color="secondary"
+        >
+          <CloseIcon />
+        </IconButton>
+      </ListItemSecondaryAction>
     </form>
   );
 }
