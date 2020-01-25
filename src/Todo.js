@@ -12,15 +12,14 @@ import { TodosContext } from "./contexts/todos.context";
 
 export default function Todo({ task, completed, id }) {
   const [isEditing, toggleEditForm] = useToggleState(false);
-
-  const { removeTodo, toggleTodo } = useContext(TodosContext);
+  const { dispatch } = useContext(TodosContext);
 
   const deleteTodo = () => {
-    removeTodo(id);
+    dispatch({ type: "REMOVE", id: id });
   };
 
   const handleCheckbox = () => {
-    toggleTodo(id);
+    dispatch({ type: "TOGGLE", id: id });
   };
   return (
     <ListItem style={{ height: 58 }}>
